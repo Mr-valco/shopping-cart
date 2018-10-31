@@ -24,13 +24,39 @@
         <h1>Xur's stash</h1>
     </header>
 
+    <!--     <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>items</h1>
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Filter</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" id="Weapon" value="Weapon">Weapon</a>
+                            <a class="dropdown-item" id="Gear" value="Gear">gear</a>
+                            <a class="dropdown-item" id="Consumables" value="Consumables">Consumable</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" id="all" value="all">All</a>
+                        </div>
+                    </div>
+    
+                    <div id="items"></div>
+                </div>
+    
+                <div class="col-sm-6">
+                    <h1>Cart</h1>
+                    <div id="cart"></div>
+                </div>
+            </div>
+        </div>
+ -->
+
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h1>items</h1>
                 <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Filter</a>
+                    <a class="btn dropdown-toggle btn btn-info" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" id="Weapon" value="Weapon">Weapon</a>
                         <a class="dropdown-item" id="Gear" value="Gear">gear</a>
@@ -39,13 +65,24 @@
                         <a class="dropdown-item" id="all" value="all">All</a>
                     </div>
                 </div>
-
-                <div id="items"></div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h1>This Weeks Goodies</h1>
+                        <div class="p-3 m-2" id="items"></div>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-sm-6">
-                <h1>Cart</h1>
-                <div id="cart"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <h1>Shopping Cart</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="jumbotron  m-2" id="cart"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

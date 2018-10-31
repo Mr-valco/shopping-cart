@@ -4,63 +4,68 @@ $(document).ready(function () {
     const itemList = [
         {
             category: 'Weapon',
-            name: 'shotweapon'
+            name: 'ace of spades',
+            img: src = './assets/images/ace.jpg'
         },
         {
             category: 'Weapon',
-            name: 'hand canon'
+            name: 'jade rabbit',
+            img: src = './assets/images/jade.jpg'
         },
         {
             category: 'Weapon',
-            name: 'Scout Rifle'
+            name: 'mida multy tool',
+            img: src = './assets/images/mida.jpg'
         },
         {
             category: 'Gear',
-            name: 'helmet'
+            name: 'skullfort',
+            img: src = './assets/images/scull.jpg'
         },
         {
             category: 'Gear',
-            name: 'Chest Peace'
+            name: 'sunbreakers',
+            img: src = './assets/images/sun.jpg'
         },
         {
             category: 'Gear',
-            name: 'Boots'
-        },
-        {
-            category: 'Gear',
-            name: 'Gloves'
+            name: 'roket',
+            img: src = './assets/images/rocket.jpg'
         },
         {
             category: 'Consumables',
-            name: 'Tree of Coins'
+            name: 'xp boost',
+            img: src = './assets/images/xp.jpg'
         },
         {
             category: 'Consumables',
-            name: 'XP Boost'
+            name: 'token boost',
+            img: src = './assets/images/token.jpg'
         },
         {
             category: 'Consumables',
-            name: 'Shards'
+            name: 'treasure map',
+            img: src = './assets/images/treasure.jpg'
         }
     ];
 
     const dupeFind = function (itemName, ID) {
-        const cart = $('#cart');
-        const items = $(`#item-${ID}`);
+        let cart = $('#cart');
+        let items = $(`.forremove`);
 
-        for (let i = 0; i < cart.length; i++) {
-            if (items.text() === itemName) {
-                alert( itemName + ' Item already exists in cart!');
-
+        console.log(items.length);
+        for (let i = 0; i <= items.length; i++) {
+            if ($(`#item-${ID}`).attr('src') === itemName) {
+                alert(itemName + ' Item already exists in cart!');
+                break;
             } else {
-                const incartItem = $(`<button class=" forremove btn btn-outline-danger" id="item-${ID}">${itemName}</button>`);
-                $('#items').on('click', '.product', function () {
-                    cart.append(incartItem);
-                    
-                });
-                    // Removes the item from the  cart.
-                    $(`#item-${ID}`).remove();
+                let incartItem = $(`<img class=" p-3 m-2 forremove btn btn-outline-danger" alt="${itemList[ID].name}" src="${itemList[ID].img}" id="item-${ID}"></img>`);
+                cart.append(incartItem);
 
+                $(`#item-${ID}`).on('click', function () {
+                    this.remove();
+                });
+                break;
             }
 
         }
@@ -72,12 +77,13 @@ $(document).ready(function () {
 
         for (let i = 0; i < itemList.length; i++) {
 
-            const itemBtn = $(`<button class=" product ${itemList[i].category} item-${i}">`);
+            const itemBtn = $(`<img class=" p-3 m-2 btn btn-warning product ${itemList[i].category} item-${i}">`);
             itemBtn.attr('item-name', itemList[i].name);
             itemBtn.text(itemList[i].name);
+            itemBtn.attr('src', itemList[i].img);
             $('#items').append(itemBtn);
             $(`.item-${i}`).on('click', function () {
-                dupeFind(itemList[i].name, i);
+                dupeFind(itemList[i].img, i);
             });
 
         }
@@ -106,20 +112,9 @@ $(document).ready(function () {
     //remove
     const removeItem = function () {
         $(this).remove();
+
     }
-    $('#cart').on('click', '.forremove', removeItem);
-
-
-
-
-    //old code 
-    //add to cart - old
-    /* const appendItem = function () {
-        const item = $('<button class="btn btn-outline-danger" id="item">');
-        item.text($(this).attr("item-name"));
-        $('#cart').append(item);
-    }
-    $('#items').on('click', '.product', appendItem); */
+    // $('#cart').on('click', '.forremove', removeItem);
 
 
 });
