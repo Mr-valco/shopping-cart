@@ -46,19 +46,21 @@ $(document).ready(function () {
 
     const dupeFind = function (itemName, ID) {
         const cart = $('#cart');
-        const items = $(`.item-${ID}`);
+        const items = $(`#item-${ID}`);
 
         for (let i = 0; i < cart.length; i++) {
             if (items.text() === itemName) {
-                alert('Item already exists in cart!');
+                alert( itemName + ' Item already exists in cart!');
 
             } else {
-                cart.append(`<button class="item-${ID} btn btn-outline-danger"></button>`);
-                items.text($(this).attr("item-name"));
-                $(`.item-${ID}`).on('click', function () {
-                    // Removes the button from the shopping cart.
-                    $(`.item-${ID}`).remove();
+                const incartItem = $(`<button class=" forremove btn btn-outline-danger" id="item-${ID}">${itemName}</button>`);
+                $('#items').on('click', '.product', function () {
+                    cart.append(incartItem);
+                    
                 });
+                    // Removes the item from the  cart.
+                    $(`#item-${ID}`).remove();
+
             }
 
         }
@@ -90,20 +92,10 @@ $(document).ready(function () {
         });
     }
 
-
-
     //all the categories
     $('#all').on('click', function () {
         $('.product').show();
     });
-
-    //add to cart
-    const appendItem = function () {
-        const item = $('<button class="btn btn-outline-danger" id="item">');
-        item.text($(this).attr("item-name"));
-        $('#cart').append(item);
-    }
-    $('#items').on('click', '.product', appendItem);
 
     //clear
     const clear = function () {
@@ -115,9 +107,19 @@ $(document).ready(function () {
     const removeItem = function () {
         $(this).remove();
     }
-    $('#cart').on('click', '#item', removeItem);
+    $('#cart').on('click', '.forremove', removeItem);
 
 
+
+
+    //old code 
+    //add to cart - old
+    /* const appendItem = function () {
+        const item = $('<button class="btn btn-outline-danger" id="item">');
+        item.text($(this).attr("item-name"));
+        $('#cart').append(item);
+    }
+    $('#items').on('click', '.product', appendItem); */
 
 
 });
