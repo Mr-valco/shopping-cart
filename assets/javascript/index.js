@@ -56,10 +56,10 @@ $(document).ready(function () {
         console.log(items.length);
         for (let i = 0; i <= items.length; i++) {
             if ($(`#item-${ID}`).attr('src') === itemName) {
-                alert(itemName + ' Item already exists in cart!');
+                alert(itemList[ID].name + ' Item already exists in cart!');
                 break;
             } else {
-                let incartItem = $(`<img class=" p-3 m-2 forremove btn btn-outline-danger" alt="${itemList[ID].name}" src="${itemList[ID].img}" id="item-${ID}"></img>`);
+                let incartItem = $(`<img class=" m-2 forremove btn btn-outline-danger" alt="${itemList[ID].name}" src="${itemList[ID].img}" id="item-${ID}"></img>`);
                 cart.append(incartItem);
 
                 $(`#item-${ID}`).on('click', function () {
@@ -108,13 +108,5 @@ $(document).ready(function () {
         $('#cart').empty();
     }
     $('#clear').on('click', clear);
-
-    //remove
-    const removeItem = function () {
-        $(this).remove();
-
-    }
-    // $('#cart').on('click', '.forremove', removeItem);
-
 
 });
